@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Product | Luma Supply</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/product.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">L</span
+          ><span>Luma<span class="brand-light">Supply</span></span></a
+        >
+        <button class="burger-menu-btn" id="burger-menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"></path></svg></button>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="index.html">Home</a><a href="products.html">Products</a
+          ><a href="about.html">About</a><a href="contact.html">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <a class="icon-link" href="cart.html" aria-label="Cart"
+            ><svg><use href="assets/icons/icons.svg#bag"></use></svg
+            ><span id="cart-count" class="cart-badge">0</span></a
+          ><a class="icon-link" href="profile.html" aria-label="Profile"
+            ><svg><use href="assets/icons/icons.svg#user"></use></svg
+          ></a>
+        </div>
+      </div><nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation"><div class="mobile-menu-header"><span>Menu</span><button class="mobile-menu-close" id="mobile-menu-close" type="button" aria-label="Close navigation menu"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"></path></svg></button></div><div class="mobile-menu-links"><a href="index.html">Home</a><a href="products.html">Products</a><a href="about.html">About</a><a href="contact.html">Contact</a></div><div class="mobile-menu-account"><p>Account</p><a class="auth-guest-mobile" href="sign-in.html">Sign in</a><a class="auth-guest-mobile" href="sign-up.html">Sign up</a><a class="auth-user-mobile is-hidden" href="profile.html">My profile</a><a class="auth-user-mobile is-hidden" href="cart.html">My cart</a><button class="auth-user-mobile is-hidden link-button" type="button">Sign out</button></div></nav>
+    </header>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay" aria-hidden="true"></div>
+    <main>
+      <div class="container breadcrumbs">
+        <a href="index.html">Home</a><span>/</span
+        ><a href="products.html">Products</a><span>/</span
+        ><span>Arc wireless speaker</span>
+      </div>
+      <section class="product-detail container">
+        <div class="product-gallery">
+          <div
+            id="product-image"
+            class="product-image image-slate product-main-image"
+          >
+            <span class="shape shape-speaker"></span>
+          </div>
+          <div class="thumbnail-row">
+            <button
+              class="thumbnail active"
+              type="button"
+              aria-label="View image 1"
+            >
+              <span class="shape shape-speaker"></span></button
+            ><button class="thumbnail" type="button" aria-label="View image 2">
+              <span class="shape shape-speaker"></span></button
+            ><button class="thumbnail" type="button" aria-label="View image 3">
+              <span class="shape shape-speaker"></span>
+            </button>
+          </div>
+        </div>
+        <div class="product-info">
+          <p id="product-category" class="eyebrow">Electronics</p>
+          <h1 id="product-title">Arc wireless speaker</h1>
+          <div class="detail-rating">★★★★★ <span>4.9 (24 reviews)</span></div>
+          <div class="detail-price">
+            <strong id="product-price">$129.00</strong
+            ><del id="product-old-price">$159.00</del>
+          </div>
+          <p id="product-description" class="detail-description">
+            Room-filling sound in a beautifully simple form. Arc brings warm,
+            detailed audio to your everyday spaces, wirelessly.
+          </p>
+          <p id="product-stock" class="stock-status">
+            ● In stock &nbsp; <span>Ships in 1–2 days</span>
+          </p>
+          <div class="purchase-row">
+            <div class="quantity">
+              <button
+                id="decrease-quantity"
+                type="button"
+                aria-label="Decrease quantity"
+              >
+                −</button
+              ><input
+                id="product-quantity"
+                name="quantity"
+                type="number"
+                value="1"
+                min="1"
+                aria-label="Quantity"
+              /><button
+                id="increase-quantity"
+                type="button"
+                aria-label="Increase quantity"
+              >
+                +
+              </button>
+            </div>
+            <button
+              id="add-to-cart-btn"
+              class="button"
+              type="button"
+              data-product-id="101"
+            >
+              Add to cart</button
+            ><button class="button button-outline buy-now-btn" type="button">
+              Buy now
+            </button>
+          </div>
+          <div class="detail-tabs">
+            <details open>
+              <summary>Description</summary>
+              <p>
+                Designed with a tactile recycled-aluminum body, Arc sounds as
+                good as it feels. Pair two for stereo listening.
+              </p>
+            </details>
+            <details>
+              <summary>Specifications</summary>
+              <p>
+                Bluetooth 5.2 · 12-hour battery · USB-C charging · 2-year
+                warranty.
+              </p>
+            </details>
+            <details>
+              <summary>Shipping & returns</summary>
+              <p>
+                Free domestic shipping over $75. Returns accepted within 30
+                days.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+      <section class="section container">
+        <div class="section-heading"><h2>Related products</h2></div>
+        <div id="related-products" class="product-grid product-grid-compact">
+          <article class="product-card" data-product-id="102">
+            <a class="product-image image-sand" href="product.html?id=102"
+              ><span class="shape shape-bag"></span
+            ></a>
+            <div class="product-card-body">
+              <p class="product-category">Accessories</p>
+              <h3><a href="product.html?id=102">Linen market tote</a></h3>
+              <strong>$48.00</strong>
+            </div>
+          </article>
+          <article class="product-card" data-product-id="104">
+            <a class="product-image image-blue" href="product.html?id=104"
+              ><span class="shape shape-lamp"></span
+            ></a>
+            <div class="product-card-body">
+              <p class="product-category">Home</p>
+              <h3><a href="product.html?id=104">Fold table lamp</a></h3>
+              <strong>$96.00</strong>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

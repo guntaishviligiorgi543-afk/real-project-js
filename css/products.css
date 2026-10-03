@@ -1,0 +1,114 @@
+.page-hero {
+  padding: 90px 0 65px;
+  border-bottom: 1px solid var(--line);
+}
+.page-hero h1 {
+  font-size: clamp(3rem, 7vw, 6rem);
+  margin: 0 0 15px;
+}
+.page-hero p:last-child {
+  color: var(--muted);
+  font-size: 17px;
+}
+.catalog {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 60px;
+  padding-block: 60px;
+}
+.filters {
+  display: grid;
+  align-content: start;
+  gap: 24px;
+}
+.filters label,
+.sort-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 9px;
+}
+.filters input,
+.filters select {
+  width: 100%;
+}
+.catalog-results {
+  min-width: 0;
+}
+.results-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 18px;
+  margin-bottom: 25px;
+  font-size: 12px;
+}
+.results-toolbar p {
+  margin: 0;
+  color: var(--muted);
+}
+.results-toolbar strong {
+  color: var(--ink);
+}
+.sort-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+.sort-label select {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 400;
+}
+.catalog-results .product-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 55px;
+}
+.pagination a {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+}
+.pagination a.current,
+.pagination a:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+@media (max-width: 800px) {
+  .catalog {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .filters {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .catalog-results .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .filters {
+    grid-template-columns: 1fr;
+  }
+  .results-toolbar {
+    display: block;
+  }
+  .sort-label {
+    margin-top: 15px;
+  }
+}

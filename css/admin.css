@@ -1,0 +1,274 @@
+.admin-body {
+  background: #f1f2ef;
+  display: flex;
+  min-height: 100vh;
+}
+.admin-sidebar {
+  width: 240px;
+  background: #242925;
+  color: #f4f3ed;
+  padding: 30px 25px;
+  flex: none;
+}
+.admin-sidebar .brand {
+  margin-bottom: 55px;
+}
+.admin-sidebar .brand-light {
+  color: #aeb4aa;
+}
+.admin-sidebar nav {
+  display: grid;
+  gap: 5px;
+}
+.admin-sidebar nav a,
+.admin-sidebar nav button {
+  padding: 11px 12px;
+  color: #adb4aa;
+  font-size: 13px;
+  text-align: left;
+  border: 0;
+  background: none;
+}
+.admin-sidebar nav a.active,
+.admin-sidebar nav a:hover {
+  background: #3b433d;
+  color: #fff;
+}
+.admin-main {
+  flex: 1;
+  min-width: 0;
+}
+.admin-topbar {
+  height: 86px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 0 38px;
+}
+.admin-topbar h1 {
+  font-size: 22px;
+  margin: 0;
+}
+.admin-search {
+  margin-left: auto;
+}
+.admin-search input {
+  width: 220px;
+  background: #f5f5f2;
+}
+.admin-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #d7c7b5;
+  font-size: 10px;
+  font-weight: 700;
+}
+.admin-menu-toggle {
+  display: none;
+}
+.admin-section {
+  padding: 40px;
+}
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 35px;
+}
+.admin-stats > div {
+  background: #fff;
+  padding: 22px;
+}
+.admin-stats span,
+.admin-stats small {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+}
+.admin-stats strong {
+  display: block;
+  font-size: 28px;
+  margin: 12px 0 4px;
+}
+.admin-stats small {
+  color: var(--success);
+}
+.admin-panel {
+  background: #fff;
+  padding: 25px;
+  margin-bottom: 35px;
+}
+.admin-panel-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+.admin-panel-heading h2 {
+  font-size: 24px;
+  margin: 0;
+}
+.admin-panel-heading a {
+  font-size: 11px;
+  text-decoration: underline;
+}
+.admin-toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.admin-toolbar input {
+  width: 280px;
+}
+.admin-toolbar select {
+  min-width: 160px;
+}
+.table-action {
+  border: 0;
+  background: none;
+  text-decoration: underline;
+  font-size: 11px;
+  padding: 3px 7px;
+}
+.table-action.danger {
+  color: var(--danger);
+}
+.actions {
+  white-space: nowrap;
+}
+.table-image {
+  display: block;
+  width: 35px;
+  height: 35px;
+}
+.modal {
+  display: none;
+}
+.modal-content {
+  background: #fff;
+  width: min(100% - 32px, 650px);
+  max-height: 90vh;
+  overflow: auto;
+  position: relative;
+  margin: auto;
+  padding: 25px;
+  box-shadow: var(--shadow);
+}
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+  z-index: 1;
+}
+.modal-header,
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.modal-header {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+}
+.modal-header h2 {
+  font-size: 22px;
+  margin: 0;
+}
+.modal-header button {
+  background: none;
+  border: 0;
+  font-size: 25px;
+}
+.modal-body {
+  padding-bottom: 20px;
+}
+.modal-footer {
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.modal-footer .button-outline {
+  width: auto;
+  margin: 0;
+}
+.danger-button {
+  background: var(--danger);
+  border-color: var(--danger);
+}
+.confirm-modal {
+  max-width: 440px;
+}
+.confirm-modal .modal-body p {
+  margin: 0;
+  color: var(--muted);
+}
+@media (max-width: 900px) {
+  .admin-sidebar {
+    width: 200px;
+  }
+  .admin-section {
+    padding: 28px 20px;
+  }
+  .admin-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 650px) {
+  .admin-body {
+    display: block;
+  }
+  .admin-sidebar {
+    width: 100%;
+    padding: 15px 20px;
+  }
+  .admin-sidebar .brand {
+    margin-bottom: 12px;
+  }
+  .admin-sidebar nav {
+    display: flex;
+    overflow: auto;
+  }
+  .admin-sidebar nav a,
+  .admin-sidebar nav button {
+    white-space: nowrap;
+  }
+  .admin-topbar {
+    padding: 0 20px;
+  }
+  .admin-menu-toggle {
+    display: block;
+    border: 0;
+    background: none;
+  }
+  .admin-search {
+    display: none;
+  }
+  .admin-stats {
+    gap: 8px;
+  }
+  .admin-stats > div {
+    padding: 15px;
+  }
+  .admin-stats strong {
+    font-size: 22px;
+  }
+  .admin-section {
+    padding: 25px 14px;
+  }
+  .admin-panel-heading {
+    align-items: start;
+    gap: 10px;
+  }
+  .admin-panel-heading h2 {
+    font-size: 20px;
+  }
+}

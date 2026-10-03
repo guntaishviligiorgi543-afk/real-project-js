@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sign in | Luma Supply</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+  </head>
+  <body>
+    <header class="site-header"><div class="container header-inner"><a class="brand" href="index.html"><span class="brand-mark">L</span><span>Luma<span class="brand-light">Supply</span></span></a><button class="burger-menu-btn" id="burger-menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"></path></svg></button><nav class="desktop-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="products.html">Products</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><div class="header-actions"><a class="icon-link" href="cart.html" aria-label="Cart"><svg><use href="assets/icons/icons.svg#bag"></use></svg><span id="cart-count" class="cart-badge">0</span></a><a href="sign-up.html">Sign up</a></div><nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation"><div class="mobile-menu-header"><span>Menu</span><button class="mobile-menu-close" id="mobile-menu-close" type="button" aria-label="Close navigation menu"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"></path></svg></button></div><div class="mobile-menu-links"><a href="index.html">Home</a><a href="products.html">Products</a><a href="about.html">About</a><a href="contact.html">Contact</a></div><div class="mobile-menu-account"><p>Account</p><a class="auth-guest-mobile" href="sign-in.html">Sign in</a><a class="auth-guest-mobile" href="sign-up.html">Sign up</a><a class="auth-user-mobile is-hidden" href="profile.html">My profile</a><a class="auth-user-mobile is-hidden" href="cart.html">My cart</a><button class="auth-user-mobile is-hidden link-button" type="button">Sign out</button></div></nav></div></header><div class="mobile-menu-overlay" id="mobile-menu-overlay" aria-hidden="true"></div>
+    <main class="auth-page">
+      <section class="auth-card">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">L</span
+          ><span>Luma<span class="brand-light">Supply</span></span></a
+        >
+        <h1>Welcome back.</h1>
+        <p>Sign in to view your orders and saved details.</p>
+        <form id="sign-in-form" class="auth-form" novalidate>
+          <div class="field">
+            <label for="sign-in-email">Email address</label
+            ><input
+              id="sign-in-email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+            /><span class="field-error" data-error-for="email"></span>
+          </div>
+          <div class="field">
+            <label for="sign-in-password">Password</label
+            ><input
+              id="sign-in-password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            /><span class="field-error" data-error-for="password"></span>
+          </div>
+          <div class="form-options">
+            <label class="check-row"
+              ><input name="remember" type="checkbox" /> Remember me</label
+            ><a href="#" class="text-link">Forgot password?</a>
+          </div>
+          <p id="sign-in-message" class="form-message" role="alert"></p>
+          <button class="button" type="submit">Sign in</button>
+        </form>
+        <p class="form-footer">
+          Don't have an account? <a href="sign-up.html">Create one</a>
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

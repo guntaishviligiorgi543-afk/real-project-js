@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Products | Luma Supply</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/products.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">L</span
+          ><span>Luma<span class="brand-light">Supply</span></span></a
+        ><button class="burger-menu-btn" id="burger-menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"></path></svg></button>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="index.html">Home</a
+          ><a class="active" href="products.html">Products</a
+          ><a href="about.html">About</a><a href="contact.html">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <a class="icon-link" href="products.html" aria-label="Search"
+            ><svg><use href="assets/icons/icons.svg#search"></use></svg></a
+          ><a class="icon-link cart-link" href="cart.html" aria-label="Cart"
+            ><svg><use href="assets/icons/icons.svg#bag"></use></svg
+            ><span id="cart-count" class="cart-badge">0</span></a
+          ><a class="icon-link" href="profile.html" aria-label="Profile"
+            ><svg><use href="assets/icons/icons.svg#user"></use></svg></a
+          ><span class="auth-guest"
+            ><a href="sign-in.html">Sign in</a
+            ><a class="button button-small" href="sign-up.html">Join</a></span
+          >
+        </div>
+      </div>
+      <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation"><div class="mobile-menu-header"><span>Menu</span><button class="mobile-menu-close" id="mobile-menu-close" type="button" aria-label="Close navigation menu"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"></path></svg></button></div><div class="mobile-menu-links"><a href="index.html">Home</a><a href="products.html">Products</a><a href="about.html">About</a><a href="contact.html">Contact</a></div><div class="mobile-menu-account"><p>Account</p><a class="auth-guest-mobile" href="sign-in.html">Sign in</a><a class="auth-guest-mobile" href="sign-up.html">Sign up</a><a class="auth-user-mobile is-hidden" href="profile.html">My profile</a><a class="auth-user-mobile is-hidden" href="cart.html">My cart</a><button class="auth-user-mobile is-hidden link-button" type="button">Sign out</button></div></nav>
+    </header><div class="mobile-menu-overlay" id="mobile-menu-overlay" aria-hidden="true"></div>
+    <main>
+      <section class="page-hero container">
+        <p class="eyebrow">The complete collection</p>
+        <h1>Products</h1>
+        <p>Useful, beautiful pieces for every part of your day.</p>
+      </section>
+      <section class="catalog container">
+        <aside class="filters">
+          <div class="filter-search">
+            <label for="product-search">Search products</label
+            ><input
+              id="product-search"
+              name="search"
+              type="search"
+              placeholder="Search products..."
+            />
+          </div>
+          <div>
+            <label for="category-filter">Category</label
+            ><select id="category-filter" name="category">
+              <option value="">All categories</option>
+              <option>Electronics</option>
+              <option>Fashion</option>
+              <option>Home</option>
+              <option>Accessories</option>
+            </select>
+          </div>
+          <div>
+            <label for="price-filter">Price range</label
+            ><select id="price-filter" name="price">
+              <option>Any price</option>
+              <option>Under $50</option>
+              <option>$50–$100</option>
+              <option>Over $100</option>
+            </select>
+          </div>
+        </aside>
+        <div class="catalog-results">
+          <div class="results-toolbar">
+            <p id="result-count">Showing <strong>12</strong> products</p>
+            <label class="sort-label" for="sort-products"
+              >Sort by
+              <select id="sort-products" name="sort">
+                <option value="default">Default</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="name-asc">Name A-Z</option>
+                <option value="name-desc">Name Z-A</option>
+              </select></label
+            >
+          </div>
+          <div id="products-grid" class="product-grid">
+            <article class="product-card" data-product-id="101">
+              <a class="product-image image-slate" href="product.html?id=101"
+                ><span class="badge">New</span
+                ><span class="shape shape-speaker"></span
+              ></a>
+              <div class="product-card-body">
+                <p class="product-category">Electronics</p>
+                <h3><a href="product.html?id=101">Arc wireless speaker</a></h3>
+                <div class="product-meta">
+                  <strong>$129.00</strong><span class="rating">★★★★★</span>
+                </div>
+                <button
+                  class="button button-outline add-to-cart-btn"
+                  type="button"
+                  data-product-id="101"
+                >
+                  Add to cart
+                </button>
+              </div>
+            </article>
+            <article class="product-card" data-product-id="102">
+              <a class="product-image image-sand" href="product.html?id=102"
+                ><span class="shape shape-bag"></span
+              ></a>
+              <div class="product-card-body">
+                <p class="product-category">Accessories</p>
+                <h3><a href="product.html?id=102">Linen market tote</a></h3>
+                <div class="product-meta">
+                  <strong>$48.00</strong><span class="rating">★★★★★</span>
+                </div>
+                <button
+                  class="button button-outline add-to-cart-btn"
+                  type="button"
+                  data-product-id="102"
+                >
+                  Add to cart
+                </button>
+              </div>
+            </article>
+            <article class="product-card" data-product-id="103">
+              <a class="product-image image-rose" href="product.html?id=103"
+                ><span class="shape shape-bottle"></span
+              ></a>
+              <div class="product-card-body">
+                <p class="product-category">Home</p>
+                <h3><a href="product.html?id=103">Stoneware carafe</a></h3>
+                <div class="product-meta">
+                  <strong>$72.00</strong><span class="rating">★★★★★</span>
+                </div>
+                <button
+                  class="button button-outline add-to-cart-btn"
+                  type="button"
+                  data-product-id="103"
+                >
+                  Add to cart
+                </button>
+              </div>
+            </article>
+            <article class="product-card" data-product-id="104">
+              <a class="product-image image-blue" href="product.html?id=104"
+                ><span class="shape shape-lamp"></span
+              ></a>
+              <div class="product-card-body">
+                <p class="product-category">Home</p>
+                <h3><a href="product.html?id=104">Fold table lamp</a></h3>
+                <div class="product-meta">
+                  <strong>$96.00</strong><span class="rating">★★★★★</span>
+                </div>
+                <button
+                  class="button button-outline add-to-cart-btn"
+                  type="button"
+                  data-product-id="104"
+                >
+                  Add to cart
+                </button>
+              </div>
+            </article>
+            <article class="product-card" data-product-id="105">
+              <a class="product-image image-green" href="product.html?id=105"
+                ><span class="shape shape-cap"></span
+              ></a>
+              <div class="product-card-body">
+                <p class="product-category">Fashion</p>
+                <h3><a href="product.html?id=105">Everyday cotton cap</a></h3>
+                <div class="product-meta"><strong>$34.00</strong></div>
+                <button
+                  class="button button-outline add-to-cart-btn"
+                  type="button"
+                  data-product-id="105"
+                >
+                  Add to cart
+                </button>
+              </div>
+            </article>
+            <article class="product-card" data-product-id="106">
+              <a class="product-image image-yellow" href="product.html?id=106"
+                ><span class="shape shape-mug"></span
+              ></a>
+              <div class="product-card-body">
+                <p class="product-category">Home</p>
+                <h3><a href="product.html?id=106">Morning ritual mug</a></h3>
+                <div class="product-meta"><strong>$28.00</strong></div>
+                <button
+                  class="button button-outline add-to-cart-btn"
+                  type="button"
+                  data-product-id="106"
+                >
+                  Add to cart
+                </button>
+              </div>
+            </article>
+          </div>
+          <nav
+            id="products-pagination"
+            class="pagination"
+            aria-label="Product pages"
+          >
+            <a href="#" aria-label="Previous page">←</a
+            ><a class="current" href="#">1</a><a href="#">2</a><a href="#">3</a
+            ><a href="#" aria-label="Next page">→</a>
+          </nav>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-bottom">
+        <span>© 2024 Luma Supply</span
+        ><span
+          ><a href="about.html">About</a> &nbsp;
+          <a href="contact.html">Contact</a> &nbsp;
+          <a href="cart.html">Cart</a></span
+        >
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Admin sign in | Luma Supply</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+  </head>
+  <body class="admin-auth">
+    <main class="auth-page">
+      <section class="auth-card">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">L</span
+          ><span>Luma<span class="brand-light">Admin</span></span></a
+        >
+        <h1>Welcome back.</h1>
+        <p>Sign in to manage your store.</p>
+        <form id="admin-login-form" class="auth-form">
+          <div class="field">
+            <label for="admin-email">Email</label
+            ><input
+              id="admin-email"
+              name="email"
+              type="email"
+              autocomplete="username"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="admin-password">Password</label
+            ><input
+              id="admin-password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+          <p id="admin-login-error" class="form-message" role="alert"></p>
+          <button class="button" type="submit">Sign in to dashboard</button>
+        </form>
+        <p class="form-footer"><a href="index.html">← Back to store</a></p>
+      </section>
+    </main>
+  </body>
+</html>
