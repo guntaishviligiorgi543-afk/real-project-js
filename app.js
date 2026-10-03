@@ -15,6 +15,12 @@
 
   function setMessage(id, text, isError) {
     var node = document.getElementById(id);
+    if (!node && id === "toast-message") {
+      node = document.createElement("p");
+      node.id = id;
+      node.className = "toast-message";
+      document.body.appendChild(node);
+    }
     if (!node) return;
     node.textContent = text || "";
     node.classList.toggle("is-error", !!isError);
@@ -94,6 +100,10 @@
     overlay.addEventListener("click", close);
     menu.querySelectorAll("a").forEach(function (link) { link.addEventListener("click", close); });
     document.addEventListener("keydown", function (event) { if (event.key === "Escape") close(); });
+    window.addEventListener("scroll", function () {
+      var header = document.querySelector(".site-header");
+      if (header) header.classList.toggle("is-scrolled", window.scrollY > 12);
+    }, { passive: true });
   }
 
   async function addToCart(productId, quantity) {
@@ -200,12 +210,110 @@
     form.addEventListener("submit", function (event) { event.preventDefault(); form.reset(); setMessage("toast-message", "You're on the list.", false); });
   }
 
+  function setupCart() {
+    var items = document.getElementById("cart-items");
+    if (!items) return;
+    items.addEventListener("click", async function (event) {
+      var button = event.target.closest(".quantity button, .remove-item");
+      if (!button) return;
+      var row = button.closest(".cart-item");
+      var input = row && row.querySelector(".quantity input");
+      if (button.classList.contains("remove-item")) {
+        row.remove();
+      } else if (input) {
+        input.value = Math.max(1, Number(input.value) + (button.textContent.trim() === "+" ? 1 : -1));
+      }
+      updateCartSummary();
+    });
+    items.addEventListener("change", updateCartSummary);
+    updateCartSummary();
+  }
+
+  function updateCartSummary() {
+    var rows = document.querySelectorAll("#cart-items .cart-item");
+    var subtotal = 0;
+    var count = 0;
+    rows.forEach(function (row) {
+      var price = Number((row.querySelector(".cart-item-info > p:last-of-type")?.textContent || "").replace(/[^0-9.]/g, ""));
+      var quantity = Math.max(1, Number(row.querySelector(".quantity input")?.value || 1));
+      var total = price * quantity;
+      var totalNode = row.querySelector(":scope > strong");
+      if (totalNode) totalNode.textContent = "$" + total.toFixed(2);
+      subtotal += total;
+      count += quantity;
+    });
+    var subtotalNode = document.getElementById("cart-subtotal");
+    var totalNode = document.getElementById("cart-total");
+    if (subtotalNode) subtotalNode.textContent = "$" + subtotal.toFixed(2);
+    if (totalNode) totalNode.textContent = "$" + subtotal.toFixed(2);
+    var empty = document.getElementById("empty-cart");
+    if (empty) empty.classList.toggle("is-hidden", rows.length > 0);
+    updateCartCount(count);
+  }
+
+  function setupContact() {
+    var form = document.getElementById("contact-form");
+    if (!form) return;
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+      var data = new FormData(form);
+      try {
+        var result = await supabase.from("contact_messages").insert({ name: data.get("name"), email: data.get("email"), subject: data.get("subject"), message: data.get("message") });
+        if (result.error) throw result.error;
+        form.reset();
+        setMessage("contact-form-message", "Thanks — your message has been sent.", false);
+      } catch (error) {
+        console.error("Contact submission failed.", error);
+        setMessage("contact-form-message", "We couldn't send your message. Please try again.", true);
+      }
+    });
+  }
+
+  function setupProfile() {
+    var form = document.getElementById("profile-form");
+    if (!form || !supabase) return;
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+      try {
+        var user = await getUser();
+        if (!user) { window.location.href = "sign-in.html"; return; }
+        var data = new FormData(form);
+        var result = await supabase.from("profiles").update({
+          first_name: data.get("firstName"),
+          last_name: data.get("lastName"),
+          phone: data.get("phone")
+        }).eq("id", user.id);
+        if (result.error) throw result.error;
+        setMessage("toast-message", "Your details were saved.", false);
+      } catch (error) {
+        console.error("Profile update failed.", error);
+        setMessage("toast-message", "We couldn't save your details.", true);
+      }
+    });
+    var passwordForm = document.querySelector("#security form");
+    if (passwordForm) passwordForm.addEventListener("submit", async function (event) {
+      event.preventDefault();
+      var data = new FormData(passwordForm);
+      if (data.get("newPassword") !== data.get("confirmPassword")) {
+        setMessage("toast-message", "Passwords must match.", true);
+        return;
+      }
+      var result = await supabase.auth.updateUser({ password: data.get("newPassword") });
+      if (result.error) { console.error("Password update failed.", result.error); setMessage("toast-message", result.error.message, true); return; }
+      passwordForm.reset();
+      setMessage("toast-message", "Password updated.", false);
+    });
+  }
+
   function boot() {
     loadClient();
     setupNavigation();
     setupProductActions();
     setupAuthForms();
     setupNewsletter();
+    setupCart();
+    setupContact();
+    setupProfile();
     refreshHeader();
     if (document.getElementById("product-title")) loadProduct().catch(function (error) { console.error("Unable to load product.", error); });
   }

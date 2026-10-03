@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -46,7 +46,7 @@
                 <button class="remove-item" type="button">Remove</button>
               </div>
               <div class="quantity">
-                <button type="button" aria-label="Decrease quantity">−</button
+                <button type="button" aria-label="Decrease quantity">âˆ’</button
                 ><input
                   type="number"
                   value="1"
@@ -73,7 +73,7 @@
                 <button class="remove-item" type="button">Remove</button>
               </div>
               <div class="quantity">
-                <button type="button" aria-label="Decrease quantity">−</button
+                <button type="button" aria-label="Decrease quantity">âˆ’</button
                 ><input
                   type="number"
                   value="1"
@@ -87,13 +87,13 @@
             </article>
           </div>
           <div id="empty-cart" class="empty-state is-hidden">
-            <span class="empty-icon">○</span>
+            <span class="empty-icon">â—‹</span>
             <h2>Your cart is empty</h2>
-            <p>There’s plenty more to discover.</p>
+            <p>Thereâ€™s plenty more to discover.</p>
             <a class="button" href="products.html">Shop products</a>
           </div>
           <a class="text-link continue-shopping" href="products.html"
-            >← Continue shopping</a
+            >â† Continue shopping</a
           >
         </section>
         <aside class="order-summary">
@@ -102,7 +102,7 @@
             <span>Subtotal</span><strong id="cart-subtotal">$177.00</strong>
           </div>
           <div><span>Shipping</span><strong>Free</strong></div>
-          <div><span>Discount</span><strong id="cart-discount">—</strong></div>
+          <div><span>Discount</span><strong id="cart-discount">â€”</strong></div>
           <div class="promo-code">
             <label for="promo-code">Promo code</label>
             <div>
@@ -118,10 +118,14 @@
             <span>Total</span><strong id="cart-total">$177.00</strong>
           </div>
           <button class="button checkout-button" type="button">
-            Proceed to checkout <span aria-hidden="true">→</span>
+            Proceed to checkout <span aria-hidden="true">â†’</span>
           </button>
         </aside>
       </div>
     </main>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
 </html>
+
+

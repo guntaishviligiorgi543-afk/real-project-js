@@ -1147,3 +1147,90 @@ textarea:focus {
     margin-left: 0;
   }
 }
+
+/* Shared interaction polish */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.site-header {
+  position: sticky;
+  top: 0;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom-color: rgba(223, 222, 216, 0.7);
+  transition: box-shadow 0.25s ease, min-height 0.25s ease;
+}
+.site-header .header-inner {
+  transition: min-height 0.25s ease;
+}
+.site-header.is-scrolled {
+  box-shadow: 0 8px 28px rgba(30, 29, 24, 0.07);
+}
+.site-header.is-scrolled .header-inner {
+  min-height: 64px;
+}
+body.menu-open {
+  overflow: hidden;
+}
+.product-image {
+  isolation: isolate;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.product-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(23, 23, 22, 0.28));
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 1;
+}
+.product-card:hover .product-image {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+.product-card:hover .product-image::after {
+  opacity: 1;
+}
+.product-card .add-to-cart-btn {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+.product-card:hover .add-to-cart-btn {
+  transform: translateY(-2px);
+}
+.button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+.form-message.is-error {
+  color: var(--danger);
+}
+.toast-message {
+  position: fixed;
+  z-index: 50;
+  right: 24px;
+  bottom: 24px;
+  margin: 0;
+  padding: 13px 18px;
+  background: var(--ink);
+  color: #fff;
+  box-shadow: var(--shadow);
+  animation: toast-in 0.25s ease both;
+}
+.toast-message.is-error {
+  background: var(--danger);
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
